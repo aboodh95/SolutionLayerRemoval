@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConnectionsList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Files>
+    <ConnectionFile>
+      <LastUsed>0001-01-01T00:00:00</LastUsed>
+      <Name>Default</Name>
+      <Path>C:\Users\abodh\Source\Repos\Solution.Layer.Removal\Solution.Layer.Removal\bin\Debug\Connections\ConnectionsList.Default.xml</Path>
+    </ConnectionFile>
+  </Files>
+</ConnectionsList>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CrmConnections xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ByPassProxyOnLocal>false</ByPassProxyOnLocal>
+  <Connections>
+    <ConnectionDetail>
+      <AuthType>OnlineFederation</AuthType>
+      <AzureAdAppId>00000000-0000-0000-0000-000000000000</AzureAdAppId>
+      <ConnectionId>1878021d-0fde-4e56-9c5d-72bc3a119ba9</ConnectionId>
+      <ConnectionName>Alhamwi</ConnectionName>
+      <ConnectionString>authtype=Office365;url=https://alhamwi2020.crm4.dynamics.com/;username=abood.alhamwi@alhamwi2020.onmicrosoft.com;password="MAaMqtNdDNilGE2iC4h8+Q=="</ConnectionString>
+      <EnvironmentId>2f3a0839-84ba-40a8-8c06-16a38a438ee1</EnvironmentId>
+      <IsCustomAuth>true</IsCustomAuth>
+      <IsFromSdkLoginCtrl>false</IsFromSdkLoginCtrl>
+      <LastUsedOn>2020-04-17 17:00:49</LastUsedOn>
+      <NewAuthType>AD</NewAuthType>
+      <Organization>org25da771e</Organization>
+      <OrganizationDataServiceUrl>https://alhamwi2020.api.crm4.dynamics.com/XRMServices/2011/OrganizationData.svc</OrganizationDataServiceUrl>
+      <OrganizationFriendlyName>hamwi</OrganizationFriendlyName>
+      <OrganizationServiceUrl>https://alhamwi2020.api.crm4.dynamics.com/XRMServices/2011/Organization.svc</OrganizationServiceUrl>
+      <OrganizationUrlName>alhamwi2020</OrganizationUrlName>
+      <OrganizationVersion>9.1.0.15635</OrganizationVersion>
+      <OriginalUrl>https://alhamwi2020.crm4.dynamics.com/</OriginalUrl>
+      <SavePassword>true</SavePassword>
+      <ServerName>alhamwi2020.crm4.dynamics.com</ServerName>
+      <ServerPort>443</ServerPort>
+      <TenantId>5dec965e-64da-4bbe-bb6b-38da702e4945</TenantId>
+      <Timeout />
+      <TimeoutTicks>1200000000</TimeoutTicks>
+      <UseIfd>false</UseIfd>
+      <UseMfa>false</UseMfa>
+      <UserDomain />
+      <UserName>abood.alhamwi@alhamwi2020.onmicrosoft.com</UserName>
+      <UserPassword>MAaMqtNdDNilGE2iC4h8+Q==</UserPassword>
+      <WebApplicationUrl>https://alhamwi2020.crm4.dynamics.com/</WebApplicationUrl>
+    </ConnectionDetail>
+  </Connections>
+  <IsReadOnly>false</IsReadOnly>
+  <Name>Default</Name>
+  <UseCustomProxy>false</UseCustomProxy>
+  <UseDefaultCredentials>false</UseDefaultCredentials>
+  <UseInternetExplorerProxy>false</UseInternetExplorerProxy>
+  <UseMruDisplay>false</UseMruDisplay>
+</CrmConnections>

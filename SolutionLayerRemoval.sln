@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionLayerRemoval", "SolutionLayerRemoval\SolutionLayerRemoval.csproj", "{851E36FB-AA16-4F29-B5FC-DE3FF284FE57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{851E36FB-AA16-4F29-B5FC-DE3FF284FE57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851E36FB-AA16-4F29-B5FC-DE3FF284FE57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851E36FB-AA16-4F29-B5FC-DE3FF284FE57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851E36FB-AA16-4F29-B5FC-DE3FF284FE57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6240C4DB-48E2-44B4-9FAA-10A0DE2ECDFC}
+	EndGlobalSection
+EndGlobal
