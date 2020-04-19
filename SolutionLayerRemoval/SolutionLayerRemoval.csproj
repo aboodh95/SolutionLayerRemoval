@@ -191,8 +191,17 @@
     <Compile Include="AppCode\ComponentsLoader.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="AppCode\SolutionsLoader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="AppCode\LayerLoader.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AttributeJSON.cs" />
     <Compile Include="Helpers\Enums.cs" />
@@ -219,6 +228,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SolutionLayerRemovalControl.resx">
       <DependentUpon>SolutionLayerRemovalControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +250,7 @@
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF NOT EXIST Plugins mkdir Plugins

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SolutionLayerRemoval")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Solution Layer Removal")]
+[assembly: AssemblyDescription("Removing the active layer from the production enviroment to make sure the components gets the latest update")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SolutionLayerRemoval")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCompany("Alhamwi")]
+[assembly: AssemblyProduct("Solution Layer Removal")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

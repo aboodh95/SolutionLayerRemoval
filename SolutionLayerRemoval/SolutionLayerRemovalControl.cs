@@ -19,11 +19,13 @@ using SolutionLayerRemoval.Helpers;
 using Microsoft.Xrm.Tooling.Connector;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
-
+using XrmToolBox.Extensibility.Interfaces;
+using XrmToolBox.Extensibility.Args;
+using SolutionLayerRemoval.Forms;
 
 namespace SolutionLayerRemoval
 {
-    public partial class SolutionLayerRemovalControl : PluginControlBase
+   public partial class SolutionLayerRemovalControl : PluginControlBase, IPayPalPlugin, IAboutPlugin, IGitHubPlugin
     {
         private List<Entity> SavedQueries;
         private List<Entity> SystemForms;
@@ -33,12 +35,22 @@ namespace SolutionLayerRemoval
         private List<Entity> ActiveLayers;
         private Dictionary<int,Guid> ComponentIds;
         private Settings mySettings;
+        private bool OperationRunning = false;
+        private bool CancelOperation = false;
+
+        public string DonationDescription => "Donate for me to do more wonderful tools :)";
+
+        public string EmailAccount => "abod.h95@gmail.com";
+
+        public string RepositoryName => "SolutionLayerRemoval";
+
+        public string UserName => "aboodh95";
+
         public SolutionLayerRemovalControl()
         {
             InitializeComponent();
         }
-
-        private void MyPluginControl_Load(object sender, EventArgs e)
+        private void SolutionLayerRemovalControl_Load(object sender, EventArgs e)
         {
             // Loads or creates the settings for the plug-in
             if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
@@ -50,61 +62,6 @@ namespace SolutionLayerRemoval
             {
                 LogInfo("Settings found and loaded");
             }
-            ExecuteMethod(GetSolutions);
-        }
-
-        private void tsbClose_Click(object sender, EventArgs e)
-        {
-            CancelWorker();
-        }
-
-        private void GetSolutions()
-        {
-            WorkAsync(new WorkAsyncInfo
-            {
-                Message = "Loading Managed Solutions",
-                Work = (worker, args) =>
-                {
-                    QueryExpression queryExpression = new QueryExpression("solution");
-                    queryExpression.Criteria.AddCondition("ismanaged", ConditionOperator.Equal, true);
-                    queryExpression.Criteria.AddCondition("isvisible", ConditionOperator.Equal, true);
-                    queryExpression.ColumnSet.AddColumn("uniquename");
-                    queryExpression.Orders.Add(new OrderExpression("uniquename", OrderType.Ascending));
-                    args.Result = Service.RetrieveMultiple(queryExpression);
-                },
-                PostWorkCallBack = (args) =>
-                {
-                    if (args.Error != null)
-                    {
-                        MessageBox.Show(args.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    EntityCollection result = args.Result as EntityCollection;
-                    lboxSolutions.Items.Add(new SolutionItem(new Entity
-                    {
-                        Id = Guid.Empty,
-                        ["uniquename"] = "All Solutions",
-                    }));
-                    if (result != null)
-                    {
-                        foreach (var item in result.Entities)
-                        {
-                            lboxSolutions.Items.Add(new SolutionItem(item));
-                        }
-                    }
-                    lboxSolutions.SelectedIndex = 0;
-                }
-            });
-        }
-
-        /// <summary>
-        /// This event occurs when the plugin is closed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MyPluginControl_OnCloseTool(object sender, EventArgs e)
-        {
-            // Before leaving, save the settings
-            SettingsManager.Instance.Save(GetType(), mySettings);
         }
 
         /// <summary>
@@ -123,7 +80,16 @@ namespace SolutionLayerRemoval
 
         private void tsbtnLoadUmanagedComponents_Click(object sender, EventArgs e)
         {
-            
+            if (Service == null || ConnectionDetail == null || ConnectionDetail.OrganizationDataServiceUrl == null)
+            {
+                MessageBox.Show("You have to connection to an environment before loading the solutions", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (OperationRunning)
+            {
+                MessageBox.Show("An operation is already running, pleas wait till it's finish", "Info");
+                return;
+            }
             var selectedSolutionId = (lboxSolutions.SelectedItem as SolutionItem).Solution.Id;
             if (selectedSolutionId == Guid.Empty)
             {
@@ -138,6 +104,16 @@ namespace SolutionLayerRemoval
 
         private void tsbtnRemoveActiveCustomizations_Click(object sender, EventArgs e)
         {
+            if (Service == null || ConnectionDetail == null || ConnectionDetail.OrganizationDataServiceUrl == null)
+            {
+                MessageBox.Show("You have to connection to an environment before loading the solutions", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (OperationRunning)
+            {
+                MessageBox.Show("An operation is already running, pleas wait till it's finish", "Info");
+                return;
+            }
             SelectedActiveLayers = new List<Entity>();
             DataGridViewRowCollection rows = dataGridLayers.Rows;
             foreach (DataGridViewRow item  in rows)
@@ -154,6 +130,36 @@ namespace SolutionLayerRemoval
                 return;
             }
             ActiveCustomizationsRemoval();
+        }
+
+        public void ShowAboutDialog()
+        {
+            var about = new AboutBox
+            {
+                StartPosition = FormStartPosition.CenterParent
+            };
+            about.ShowDialog();
+            about.Dispose();
+        }
+
+        private void btnLoadSolutions_Click(object sender, EventArgs e)
+        {
+            if (Service == null || ConnectionDetail == null || ConnectionDetail.OrganizationDataServiceUrl == null)
+            {
+                MessageBox.Show("You have to connection to an environment before loading the solutions","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            if (OperationRunning)
+            {
+                MessageBox.Show("An operation is already running, pleas wait till it's finish","Info");
+                return;
+            }
+            ExecuteMethod(LoadSolutions);
+        }
+
+        private void tsbCancelOperation_Click(object sender, EventArgs e)
+        {
+            CancelOperation = true;
         }
     }
 }

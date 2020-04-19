@@ -27,13 +27,11 @@ namespace SolutionLayerRemoval
                 IsCancelable = true,
                 Work = (bgworker, workargs) =>
                 {
+                    CancelOperation = false;
+                    OperationRunning = true;
                     var sw = Stopwatch.StartNew();
                     var total = SelectedActiveLayers.Count;
-                    var waitnow = false;
-                    var waitcur = 0;
                     var current = 0;
-                    var loaded = 0;
-                    var failed = 0;
                     var removedCustomizations = new List<Entity>();
                     foreach (var component in SelectedActiveLayers)
                     {
