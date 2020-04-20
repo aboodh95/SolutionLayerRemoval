@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Solution Layer Removal")]
 [assembly: AssemblyDescription("Removing the active layer from the production environment to make sure the components gets the latest update")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Alhamwi")]
+[assembly: AssemblyCompany("Abood Alhamwi")]
 [assembly: AssemblyProduct("Solution Layer Removal")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.2")]
+[assembly: AssemblyFileVersion("1.0.0.2")]

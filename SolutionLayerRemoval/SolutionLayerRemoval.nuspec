@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <license type="expression">BSD-2-Clause OR MIT</license>
+    <projectUrl>https://github.com/aboodh95/SolutionLayerRemoval</projectUrl>
+    <iconUrl>
+        https://raw.githubusercontent.com/aboodh95/SolutionLayerRemoval/master/Layers.png
+        </iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2020</copyright>
+    <releaseNotes>
+      Version 1.0.0.0
+      
+      Remove the active layer that set on top of a manged component in a production environment
+    </releaseNotes>
+
+    <tags>XRMToolBox</tags>
+  </metadata>
+</package>
