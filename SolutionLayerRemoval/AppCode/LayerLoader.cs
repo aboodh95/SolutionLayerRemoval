@@ -28,7 +28,10 @@ namespace SolutionLayerRemoval
                 IsCancelable = true,
                 Work = (bgworker, workargs) =>
                 {
-                    OperationRunning = true;
+                    if (CancelOperation)
+                    {
+                        return;
+                    }
                     var sw = Stopwatch.StartNew();
                     var total = AllSolutionComponent.Count;
                     var current = 0;
@@ -93,6 +96,10 @@ namespace SolutionLayerRemoval
         }
         public void LoadComponentsDefinitions(RunWorkerCompletedEventArgs resultArgs)
         {
+            if (CancelOperation)
+            {
+                return;
+            }
             ComponentIds = new Dictionary<int, Guid>();
             ActiveLayers = new List<Entity>();
             dataGridLayers.Rows.Clear();

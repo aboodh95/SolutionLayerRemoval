@@ -27,15 +27,12 @@ namespace SolutionLayerRemoval
                 Message = "Loading Solution Components",
                 Work = (worker, args) =>
                 {
-                    OperationRunning = true;
-                    CancelOperation = false;
                     int i = 1, pageCount = 5000;
                     string cookies = "";
                     bool hasMoreRecord = true;
                     AllSolutionComponent = new List<Entity>();
                     while (hasMoreRecord && !CancelOperation)
                     {
-
                         QueryExpression queryExpression = new QueryExpression("solutioncomponent");
                         queryExpression.PageInfo = new PagingInfo
                         {

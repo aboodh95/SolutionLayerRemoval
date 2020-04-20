@@ -19,7 +19,7 @@ namespace SolutionLayerRemoval.Forms
             this.labelVersion.Text = $"Version {AssemblyVersion}";
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            this.textBoxDescription.Text = $"{AssemblyDescription}{Environment.NewLine}Icons made by Creaticca Creative Agency https://www.flaticon.com/authors/creaticca-creative-agency from https://www.flaticon.com/";
         }
 
         #region Assembly Attribute Accessors

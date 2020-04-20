@@ -19,7 +19,7 @@ namespace SolutionLayerRemoval
 
     public partial class SolutionLayerRemovalControl
     {
-        public void ActiveCustomizationsRemoval()
+        public void RemoveActiveCustomizations()
         {
             WorkAsync(new WorkAsyncInfo()
             {
@@ -27,8 +27,7 @@ namespace SolutionLayerRemoval
                 IsCancelable = true,
                 Work = (bgworker, workargs) =>
                 {
-                    CancelOperation = false;
-                    OperationRunning = true;
+             
                     var sw = Stopwatch.StartNew();
                     var total = SelectedActiveLayers.Count;
                     var current = 0;
@@ -49,6 +48,10 @@ namespace SolutionLayerRemoval
                         catch (Exception ex)
                         {
                             MessageBox.Show(ex.Message);
+                        }
+                        if (CancelOperation)
+                        {
+                            break;
                         }
                     }
                     sw.Stop();

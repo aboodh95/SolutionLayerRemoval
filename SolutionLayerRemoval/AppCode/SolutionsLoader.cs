@@ -25,7 +25,6 @@ namespace SolutionLayerRemoval
                 Message = "Loading Managed Solutions",
                 Work = (worker, args) =>
                 {
-                    OperationRunning = true;
                     QueryExpression queryExpression = new QueryExpression("solution");
                     queryExpression.Criteria.AddCondition("ismanaged", ConditionOperator.Equal, true);
                     queryExpression.Criteria.AddCondition("isvisible", ConditionOperator.Equal, true);

@@ -99,6 +99,8 @@ namespace SolutionLayerRemoval
                     return;
                 }
             }
+            OperationRunning = true;
+            CancelOperation = false;
             LoadSolutionComponents(selectedSolutionId);
         }
 
@@ -129,7 +131,9 @@ namespace SolutionLayerRemoval
                 MessageBox.Show("You haven't select any component", "Error", MessageBoxButtons.OK);
                 return;
             }
-            ActiveCustomizationsRemoval();
+            OperationRunning = true;
+            CancelOperation = false;
+            RemoveActiveCustomizations();
         }
 
         public void ShowAboutDialog()
@@ -154,6 +158,8 @@ namespace SolutionLayerRemoval
                 MessageBox.Show("An operation is already running, pleas wait till it's finish","Info");
                 return;
             }
+            CancelOperation = false;
+            OperationRunning = true;
             ExecuteMethod(LoadSolutions);
         }
 

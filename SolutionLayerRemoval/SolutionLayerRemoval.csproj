@@ -39,12 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DiffPlex, Version=1.6.1.0, Culture=neutral, PublicKeyToken=1d35e91d1bd7bc0f, processorArchitecture=MSIL">
-      <HintPath>..\packages\DiffPlex.1.6.1\lib\net40\DiffPlex.dll</HintPath>
-    </Reference>
-    <Reference Include="DiffPlex.Wpf, Version=1.1.1.0, Culture=neutral, PublicKeyToken=1d35e91d1bd7bc0f, processorArchitecture=MSIL">
-      <HintPath>..\packages\DiffPlex.Wpf.1.1.1\lib\net46\DiffPlex.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="McTools.Xrm.Connection, Version=1.2020.2.30, Culture=neutral, PublicKeyToken=96037217801d9658, processorArchitecture=MSIL">
       <HintPath>..\packages\MscrmTools.Xrm.Connection.1.2020.2.30\lib\net462\McTools.Xrm.Connection.dll</HintPath>
     </Reference>
@@ -250,7 +244,15 @@
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\loader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\erase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-button.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF NOT EXIST Plugins mkdir Plugins
