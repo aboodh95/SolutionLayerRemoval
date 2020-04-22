@@ -33,7 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbLoadSolutions = new System.Windows.Forms.ToolStripButton();
+            this.tsbLoadUnmanagedComponents = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbtnRemoveActiveCustomizations = new System.Windows.Forms.ToolStripButton();
             this.tsbCancelOperation = new System.Windows.Forms.ToolStripButton();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.lboxSolutions = new System.Windows.Forms.ListBox();
@@ -45,9 +48,6 @@
             this.colEntityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPublisherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsbLoadSolutions = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnLoadUmanagedComponents = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnRemoveActiveCustomizations = new System.Windows.Forms.ToolStripButton();
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLayers)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssSeparator1,
             this.tsbLoadSolutions,
-            this.tsbtnLoadUmanagedComponents,
+            this.tsbLoadUnmanagedComponents,
             this.toolStripSeparator1,
             this.tsbtnRemoveActiveCustomizations,
             this.tsbCancelOperation});
@@ -73,10 +73,39 @@
             this.tssSeparator1.Name = "tssSeparator1";
             this.tssSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
+            // tsbLoadSolutions
+            // 
+            this.tsbLoadSolutions.Image = global::SolutionLayerRemoval.Properties.Resources.loader;
+            this.tsbLoadSolutions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsbLoadSolutions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbLoadSolutions.Name = "tsbLoadSolutions";
+            this.tsbLoadSolutions.Size = new System.Drawing.Size(121, 36);
+            this.tsbLoadSolutions.Text = "Load Solutions";
+            this.tsbLoadSolutions.Click += new System.EventHandler(this.btnLoadSolutions_Click);
+            // 
+            // tsbLoadUnmanagedComponents
+            // 
+            this.tsbLoadUnmanagedComponents.Image = global::SolutionLayerRemoval.Properties.Resources.loader;
+            this.tsbLoadUnmanagedComponents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsbLoadUnmanagedComponents.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbLoadUnmanagedComponents.Name = "tsbLoadUnmanagedComponents";
+            this.tsbLoadUnmanagedComponents.Size = new System.Drawing.Size(209, 36);
+            this.tsbLoadUnmanagedComponents.Text = "Load Unmanaged Components";
+            this.tsbLoadUnmanagedComponents.Click += new System.EventHandler(this.tsbtnLoadUmanagedComponents_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            // 
+            // tsbtnRemoveActiveCustomizations
+            // 
+            this.tsbtnRemoveActiveCustomizations.Image = global::SolutionLayerRemoval.Properties.Resources.erase;
+            this.tsbtnRemoveActiveCustomizations.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnRemoveActiveCustomizations.Name = "tsbtnRemoveActiveCustomizations";
+            this.tsbtnRemoveActiveCustomizations.Size = new System.Drawing.Size(199, 36);
+            this.tsbtnRemoveActiveCustomizations.Text = "Remove Active Customizations";
+            this.tsbtnRemoveActiveCustomizations.Click += new System.EventHandler(this.tsbtnRemoveActiveCustomizations_Click);
             // 
             // tsbCancelOperation
             // 
@@ -84,6 +113,7 @@
             this.tsbCancelOperation.Name = "tsbCancelOperation";
             this.tsbCancelOperation.Size = new System.Drawing.Size(127, 36);
             this.tsbCancelOperation.Text = "Cnacel Operation";
+            this.tsbCancelOperation.ToolTipText = "Cancel Operation";
             this.tsbCancelOperation.Click += new System.EventHandler(this.tsbCancelOperation_Click);
             // 
             // splitter1
@@ -203,35 +233,6 @@
             this.colPublisherName.Name = "colPublisherName";
             this.colPublisherName.ReadOnly = true;
             // 
-            // tsbLoadSolutions
-            // 
-            this.tsbLoadSolutions.Image = global::SolutionLayerRemoval.Properties.Resources.loader;
-            this.tsbLoadSolutions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tsbLoadSolutions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbLoadSolutions.Name = "tsbLoadSolutions";
-            this.tsbLoadSolutions.Size = new System.Drawing.Size(121, 36);
-            this.tsbLoadSolutions.Text = "Load Solutions";
-            this.tsbLoadSolutions.Click += new System.EventHandler(this.btnLoadSolutions_Click);
-            // 
-            // tsbtnLoadUmanagedComponents
-            // 
-            this.tsbtnLoadUmanagedComponents.Image = global::SolutionLayerRemoval.Properties.Resources.loader;
-            this.tsbtnLoadUmanagedComponents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tsbtnLoadUmanagedComponents.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbtnLoadUmanagedComponents.Name = "tsbtnLoadUmanagedComponents";
-            this.tsbtnLoadUmanagedComponents.Size = new System.Drawing.Size(201, 36);
-            this.tsbtnLoadUmanagedComponents.Text = "Load Umanaged Compnenets";
-            this.tsbtnLoadUmanagedComponents.Click += new System.EventHandler(this.tsbtnLoadUmanagedComponents_Click);
-            // 
-            // tsbtnRemoveActiveCustomizations
-            // 
-            this.tsbtnRemoveActiveCustomizations.Image = global::SolutionLayerRemoval.Properties.Resources.erase;
-            this.tsbtnRemoveActiveCustomizations.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnRemoveActiveCustomizations.Name = "tsbtnRemoveActiveCustomizations";
-            this.tsbtnRemoveActiveCustomizations.Size = new System.Drawing.Size(199, 36);
-            this.tsbtnRemoveActiveCustomizations.Text = "Remove Active Customizations";
-            this.tsbtnRemoveActiveCustomizations.Click += new System.EventHandler(this.tsbtnRemoveActiveCustomizations_Click);
-            // 
             // SolutionLayerRemovalControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,7 +255,7 @@
         #endregion
         private System.Windows.Forms.ToolStrip toolStripMenu;
         private System.Windows.Forms.ToolStripButton tsbCancelOperation;
-        private System.Windows.Forms.ToolStripButton tsbtnLoadUmanagedComponents;
+        private System.Windows.Forms.ToolStripButton tsbLoadUnmanagedComponents;
         private System.Windows.Forms.ToolStripSeparator tssSeparator1;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

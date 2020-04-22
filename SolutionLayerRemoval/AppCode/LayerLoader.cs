@@ -30,6 +30,7 @@ namespace SolutionLayerRemoval
                 {
                     if (CancelOperation)
                     {
+                        OperationRunning = false;
                         return;
                     }
                     var sw = Stopwatch.StartNew();
@@ -98,6 +99,7 @@ namespace SolutionLayerRemoval
         {
             if (CancelOperation)
             {
+                        OperationRunning = false;
                 return;
             }
             ComponentIds = new Dictionary<int, Guid>();
@@ -152,7 +154,7 @@ namespace SolutionLayerRemoval
                         queryExpression.ColumnSet.AddColumn("primaryentity");
                         WorkFlows = Service.RetrieveMultiple(queryExpression).Entities.ToList();
                     }
-                    OperationRunning = false;
+                    
                 },
                 PostWorkCallBack = (result) => {
                     ActiveLayers = ActiveLayers.OrderBy(x => x.GetAttributeValue<string>("msdyn_solutioncomponenttype")).ToList();

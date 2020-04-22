@@ -38,6 +38,7 @@ namespace SolutionLayerRemoval
                     {
                         MessageBox.Show(args.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    lboxSolutions.Items.Clear();
                     EntityCollection result = args.Result as EntityCollection;
                     lboxSolutions.Items.Add(new SolutionItem(new Entity
                     {

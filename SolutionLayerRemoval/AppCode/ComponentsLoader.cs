@@ -53,6 +53,7 @@ namespace SolutionLayerRemoval
                         hasMoreRecord = entityCollection.MoreRecords;
                         cookies = entityCollection.PagingCookie;
                     }
+
                 },
                 PostWorkCallBack = LoadComponentLayer
             });
