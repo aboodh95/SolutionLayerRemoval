@@ -112,7 +112,7 @@
             this.tsbCancelOperation.Image = global::SolutionLayerRemoval.Properties.Resources.power_button;
             this.tsbCancelOperation.Name = "tsbCancelOperation";
             this.tsbCancelOperation.Size = new System.Drawing.Size(127, 36);
-            this.tsbCancelOperation.Text = "Cnacel Operation";
+            this.tsbCancelOperation.Text = "Cancel Operation";
             this.tsbCancelOperation.ToolTipText = "Cancel Operation";
             this.tsbCancelOperation.Click += new System.EventHandler(this.tsbCancelOperation_Click);
             // 
