@@ -171,7 +171,6 @@
             this.dataGridLayers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridLayers.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridLayers.Location = new System.Drawing.Point(256, 39);
-            this.dataGridLayers.MultiSelect = false;
             this.dataGridLayers.Name = "dataGridLayers";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -181,7 +180,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridLayers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridLayers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridLayers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridLayers.Size = new System.Drawing.Size(931, 580);
             this.dataGridLayers.TabIndex = 9;
             // 
