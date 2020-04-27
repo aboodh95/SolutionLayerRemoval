@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <license type="expression">BSD-2-Clause OR MIT</license>
+    <!-- <license type="expression">BSD-2-Clause OR MIT</license> -->
     <projectUrl>https://github.com/aboodh95/SolutionLayerRemoval</projectUrl>
     <iconUrl>
         https://raw.githubusercontent.com/aboodh95/SolutionLayerRemoval/master/Layers.png
