@@ -1,18 +1,18 @@
 <?xml version="1.0" ?>
 <package>
   <metadata>
-    <id>$id$</id>
+    <id>SolutionLayerRemoval</id>
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <title>Solution Layer Removal</title>
+    <authors>Abood Alhamwi</authors>
+    <owners>Abood Alhamwi</owners>
     <!-- <license type="expression">BSD-2-Clause OR MIT</license> -->
     <projectUrl>https://github.com/aboodh95/SolutionLayerRemoval</projectUrl>
     <iconUrl>
         https://raw.githubusercontent.com/aboodh95/SolutionLayerRemoval/master/Layers.png
         </iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Removing the active layer from the production environment to make sure the components gets the latest update</description>
     <copyright>Copyright 2020</copyright>
     <releaseNotes>
 Version 1.0.1.2
