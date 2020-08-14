@@ -1,4 +1,4 @@
-# SolutionLayerRemoval for XTMToolBox
+# SolutionLayerRemoval for XRMToolBox
 XrmToolBox tool to remove the active layer from the components in bulk action.
 
 # Warning:<br>
