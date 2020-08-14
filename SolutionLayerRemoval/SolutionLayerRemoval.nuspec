@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <package>
   <metadata>
     <id>SolutionLayerRemoval</id>
@@ -15,6 +15,8 @@
     <description>Removing the active layer from the production environment to make sure the components gets the latest update</description>
     <copyright>Copyright 2020</copyright>
     <releaseNotes>
+Version 1.0.1.4
+Added AppModule to Component Type enum (Thanks to Rob Nightingale for pointing out this issue)
 Version 1.0.1.2
 Fixed cannot select only one record
 Version 1.0.0.0

@@ -43,11 +43,6 @@ namespace SolutionLayerRemoval
                         Settings = new ExecuteMultipleSettings { ContinueOnError = true, ReturnResponses = true },
                         Requests = new OrganizationRequestCollection()
                     };
-                    batch = new ExecuteMultipleRequest
-                    {
-                        Settings = new ExecuteMultipleSettings { ContinueOnError = true, ReturnResponses = true },
-                        Requests = new OrganizationRequestCollection()
-                    };
 
                     foreach (var component in AllSolutionComponent)
                     {
