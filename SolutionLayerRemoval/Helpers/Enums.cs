@@ -278,6 +278,9 @@ namespace SolutionLayerRemoval.Helpers
 
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Workflow = 29,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppModule = 80,
     }
 
 }
