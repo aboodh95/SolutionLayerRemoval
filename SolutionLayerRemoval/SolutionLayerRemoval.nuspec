@@ -15,6 +15,9 @@
     <description>Removing the active layer from the production environment to make sure the components gets the latest update</description>
     <copyright>Copyright 2020</copyright>
     <releaseNotes>
+Version 1.0.2.0
+- Fixing Version issue
+Version 1.0.1.2
 Version 1.2020.8.5
 - Added AppModule to Component Type enum (Thanks to Rob Nightingale for pointing out this issue)
 - Integrating with CI/CD
