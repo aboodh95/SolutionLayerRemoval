@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>SolutionLayerRemoval</id>
+    <version>1.2022.2.25</version>
+    <title>Solution Layer Removal</title>
+    <authors>Abood Alhamwi</authors>
+    <owners>Abood Alhamwi</owners>
+    <projectUrl>https://github.com/aboodh95/SolutionLayerRemoval</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/aboodh95/SolutionLayerRemoval/master/Layers.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Removing the active layer from the production environment to make sure the components gets the latest update</description>
+    <releaseNotes>Version 1.2022.2.25
+- Fixing Version issue 🤔
+Version 1.2020.11
+- Fixing Version issue
+Version 1.2020.8
+- Added AppModule to Component Type enum (Thanks to Rob Nightingale for pointing out this issue)
+- Integrating with CI/CD
+- Fixed cannot select only one record
+Version 1.2020.7
+- Remove the active layer that set on top of a manged component in a production environment</releaseNotes>
+    <copyright>Copyright ©  2022</copyright>
+    <tags>XrmToolBox Plugins Xrm</tags>
+    <dependencies>
+      <dependency id="XrmToolBox" version="1.2020.6.40" />
+    </dependencies>
+  </metadata>
+</package>

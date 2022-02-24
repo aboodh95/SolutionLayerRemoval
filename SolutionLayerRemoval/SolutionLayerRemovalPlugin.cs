@@ -17,8 +17,12 @@ namespace SolutionLayerRemoval
         ExportMetadata("BackgroundColor", "Lavender"),
         ExportMetadata("PrimaryFontColor", "Black"),
         ExportMetadata("SecondaryFontColor", "Gray")]
-    public class SolutionLayerRemovalPlugin : PluginBase
+    public class SolutionLayerRemovalPlugin : PluginBase,IPayPalPlugin
     {
+        public string DonationDescription => "Donation for me on doing Solution Layers Removal";
+
+        public string EmailAccount => "abod.h95@gmail.com";
+
         public override IXrmToolBoxPluginControl GetControl()
         {
             return new SolutionLayerRemovalControl();
