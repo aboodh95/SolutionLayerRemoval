@@ -183,6 +183,7 @@
             this.dataGridLayers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridLayers.Size = new System.Drawing.Size(931, 580);
             this.dataGridLayers.TabIndex = 9;
+            this.dataGridLayers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridLayers_CellClick);
             // 
             // ComponentId
             // 

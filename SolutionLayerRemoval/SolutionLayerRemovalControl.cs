@@ -167,5 +167,15 @@ namespace SolutionLayerRemoval
         {
             CancelOperation = true;
         }
+
+        private void dataGridLayers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1) 
+            {
+                var currentValue = (bool)dataGridLayers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                dataGridLayers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !currentValue;
+                dataGridLayers.EndEdit();
+            }
+        }
     }
 }
