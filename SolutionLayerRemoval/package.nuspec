@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>SolutionLayerRemoval</id>
-    <version>1.2022.2.25</version>
+    <version>1.2023.1.7</version>
     <title>Solution Layer Removal</title>
     <authors>Abood Alhamwi</authors>
     <owners>Abood Alhamwi</owners>
@@ -10,7 +10,10 @@
     <iconUrl>https://raw.githubusercontent.com/aboodh95/SolutionLayerRemoval/master/Layers.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Removing the active layer from the production environment to make sure the components gets the latest update</description>
-    <releaseNotes>Version 1.2022.2.25
+    <releaseNotes>
+Version 1.2023.1.7
+- Fixing Issue #10
+Version 1.2022.2.25
 - Fixing Version issue 🤔
 Version 1.2020.11
 - Fixing Version issue
