@@ -50,6 +50,9 @@ namespace SolutionLayerRemoval
         {
             InitializeComponent();
         }
+
+        // Create a new checkbox column and set its header text
+        CheckBox headerCheckBox = new CheckBox();
         private void SolutionLayerRemovalControl_Load(object sender, EventArgs e)
         {
             // Loads or creates the settings for the plug-in
@@ -62,8 +65,57 @@ namespace SolutionLayerRemoval
             {
                 LogInfo("Settings found and loaded");
             }
+
+            //Find the Location of Header Cell.
+            Point headerCellLocation = this.dataGridLayers.GetCellDisplayRectangle(1, -1, true).Location;
+
+            //Place the Header CheckBox in the Location of the Header Cell.
+            headerCheckBox.Location = new Point(headerCellLocation.X + 13, headerCellLocation.Y + 3);
+            headerCheckBox.BackColor = Color.White;
+            headerCheckBox.Size = new Size(18, 18);
+
+            //Assign Click event to the Header CheckBox.
+            headerCheckBox.Click += new EventHandler(HeaderCheckBox_Clicked);
+            dataGridLayers.Controls.Add(headerCheckBox);
+
+            //Add a CheckBox Column to the DataGridView at the first position.
+            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+            checkBoxColumn.HeaderText = "";
+            checkBoxColumn.Width = 30;
+            checkBoxColumn.Name = "checkBoxColumn";
+            dataGridLayers.Columns[1].HeaderCell = checkBoxColumn.HeaderCell;
+
+            //Assign Click event to the DataGridView Cell.
+            dataGridLayers.CellContentClick += new DataGridViewCellEventHandler(dataGridLayers_CellContentClick);
         }
 
+        private void dataGridLayers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridLayers.Columns[1].Index && e.RowIndex == -1)
+            {
+                // User clicked the header checkbox
+                bool checkedAll = (bool)dataGridLayers.Columns[1].HeaderCell.Value;
+
+                foreach (DataGridViewRow row in dataGridLayers.Rows)
+                {
+                    row.Cells[1].Value = !checkedAll;
+                }
+            }
+        }
+
+        private void HeaderCheckBox_Clicked(object sender, EventArgs e)
+        {
+            //Necessary to end the edit mode of the Cell.
+            dataGridLayers.EndEdit();
+
+            //Loop and check and uncheck all row CheckBoxes based on Header Cell CheckBox.
+            foreach (DataGridViewRow row in dataGridLayers.Rows)
+            {
+                DataGridViewCheckBoxCell checkBox = (row.Cells[1] as DataGridViewCheckBoxCell);
+                checkBox.Value = headerCheckBox.Checked;
+            }
+        }
+        
         /// <summary>
         /// This event occurs when the connection has been updated in XrmToolBox
         /// </summary>
@@ -161,6 +213,7 @@ namespace SolutionLayerRemoval
             CancelOperation = false;
             OperationRunning = true;
             ExecuteMethod(LoadSolutions);
+            headerCheckBox.Checked = false;
         }
 
         private void tsbCancelOperation_Click(object sender, EventArgs e)
@@ -170,12 +223,53 @@ namespace SolutionLayerRemoval
 
         private void dataGridLayers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1) 
+            if (e.ColumnIndex == 1 && e.RowIndex > 0) 
             {
                 var currentValue = (bool)dataGridLayers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
                 dataGridLayers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !currentValue;
                 dataGridLayers.EndEdit();
             }
         }
+        private void txtSearchSolution_TextChanged(object sender, EventArgs e)
+        {
+            ExecuteMethod(SearchSolutions, txtSearchSolution.Text);
+            headerCheckBox.Checked = false;
+
+        }
+
+        private void txtSearchSolution_Enter(object sender, EventArgs e)
+        {
+            if (txtSearchSolution.Text == "Search here...")
+            {
+                txtSearchSolution.Text = "";
+            }
+        }
+
+        private void lboxSolutions_DoubleClick(object sender, EventArgs e)
+        {
+            if (Service == null || ConnectionDetail == null || ConnectionDetail.OrganizationDataServiceUrl == null)
+            {
+                MessageBox.Show("You have to connection to an environment before loading the solutions", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (OperationRunning)
+            {
+                MessageBox.Show("An operation is already running, pleas wait till it's finish", "Info");
+                return;
+            }
+            var selectedSolutionId = (lboxSolutions.SelectedItem as SolutionItem).Solution.Id;
+            if (selectedSolutionId == Guid.Empty)
+            {
+                var confiratmion = MessageBox.Show($"Please note that the operation might take a long time, as it's going to check all Components{Environment.NewLine}Would you like to continue", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (DialogResult.No == confiratmion)
+                {
+                    return;
+                }
+            }
+            OperationRunning = true;
+            CancelOperation = false;
+            LoadSolutionComponents(selectedSolutionId);
+        }
+
     }
 }

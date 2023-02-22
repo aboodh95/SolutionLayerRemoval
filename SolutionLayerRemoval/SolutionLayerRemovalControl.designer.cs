@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SolutionLayerRemovalControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbLoadSolutions = new System.Windows.Forms.ToolStripButton();
@@ -38,7 +39,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnRemoveActiveCustomizations = new System.Windows.Forms.ToolStripButton();
             this.tsbCancelOperation = new System.Windows.Forms.ToolStripButton();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.lboxSolutions = new System.Windows.Forms.ListBox();
             this.dataGridLayers = new System.Windows.Forms.DataGridView();
             this.ComponentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,8 +48,14 @@
             this.colEntityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPublisherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchSolution = new System.Windows.Forms.TextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLayers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripMenu
@@ -75,7 +81,7 @@
             // 
             // tsbLoadSolutions
             // 
-            this.tsbLoadSolutions.Image = global::SolutionLayerRemoval.Properties.Resources.loader;
+            this.tsbLoadSolutions.Image = ((System.Drawing.Image)(resources.GetObject("tsbLoadSolutions.Image")));
             this.tsbLoadSolutions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tsbLoadSolutions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbLoadSolutions.Name = "tsbLoadSolutions";
@@ -85,7 +91,7 @@
             // 
             // tsbLoadUnmanagedComponents
             // 
-            this.tsbLoadUnmanagedComponents.Image = global::SolutionLayerRemoval.Properties.Resources.loader;
+            this.tsbLoadUnmanagedComponents.Image = ((System.Drawing.Image)(resources.GetObject("tsbLoadUnmanagedComponents.Image")));
             this.tsbLoadUnmanagedComponents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tsbLoadUnmanagedComponents.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbLoadUnmanagedComponents.Name = "tsbLoadUnmanagedComponents";
@@ -100,7 +106,7 @@
             // 
             // tsbtnRemoveActiveCustomizations
             // 
-            this.tsbtnRemoveActiveCustomizations.Image = global::SolutionLayerRemoval.Properties.Resources.erase;
+            this.tsbtnRemoveActiveCustomizations.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnRemoveActiveCustomizations.Image")));
             this.tsbtnRemoveActiveCustomizations.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnRemoveActiveCustomizations.Name = "tsbtnRemoveActiveCustomizations";
             this.tsbtnRemoveActiveCustomizations.Size = new System.Drawing.Size(199, 36);
@@ -109,33 +115,26 @@
             // 
             // tsbCancelOperation
             // 
-            this.tsbCancelOperation.Image = global::SolutionLayerRemoval.Properties.Resources.power_button;
+            this.tsbCancelOperation.Image = ((System.Drawing.Image)(resources.GetObject("tsbCancelOperation.Image")));
             this.tsbCancelOperation.Name = "tsbCancelOperation";
             this.tsbCancelOperation.Size = new System.Drawing.Size(127, 36);
             this.tsbCancelOperation.Text = "Cancel Operation";
             this.tsbCancelOperation.ToolTipText = "Cancel Operation";
             this.tsbCancelOperation.Click += new System.EventHandler(this.tsbCancelOperation_Click);
             // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(253, 39);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 580);
-            this.splitter1.TabIndex = 8;
-            this.splitter1.TabStop = false;
-            // 
             // lboxSolutions
             // 
-            this.lboxSolutions.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lboxSolutions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lboxSolutions.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lboxSolutions.FormattingEnabled = true;
             this.lboxSolutions.HorizontalScrollbar = true;
             this.lboxSolutions.ItemHeight = 16;
-            this.lboxSolutions.Location = new System.Drawing.Point(0, 39);
+            this.lboxSolutions.Location = new System.Drawing.Point(0, 23);
             this.lboxSolutions.Name = "lboxSolutions";
-            this.lboxSolutions.Size = new System.Drawing.Size(253, 580);
+            this.lboxSolutions.Size = new System.Drawing.Size(318, 557);
             this.lboxSolutions.Sorted = true;
             this.lboxSolutions.TabIndex = 5;
+            this.lboxSolutions.DoubleClick += new System.EventHandler(this.lboxSolutions_DoubleClick);
             // 
             // dataGridLayers
             // 
@@ -143,14 +142,14 @@
             this.dataGridLayers.AllowUserToDeleteRows = false;
             this.dataGridLayers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridLayers.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridLayers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridLayers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridLayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridLayers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ComponentId,
@@ -160,28 +159,28 @@
             this.colEntityName,
             this.colOrder,
             this.colPublisherName});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridLayers.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridLayers.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridLayers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridLayers.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridLayers.Location = new System.Drawing.Point(256, 39);
+            this.dataGridLayers.Location = new System.Drawing.Point(0, 0);
             this.dataGridLayers.Name = "dataGridLayers";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridLayers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridLayers.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridLayers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridLayers.Size = new System.Drawing.Size(931, 580);
+            this.dataGridLayers.Size = new System.Drawing.Size(865, 580);
             this.dataGridLayers.TabIndex = 9;
             this.dataGridLayers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridLayers_CellClick);
             // 
@@ -233,13 +232,41 @@
             this.colPublisherName.Name = "colPublisherName";
             this.colPublisherName.ReadOnly = true;
             // 
+            // txtSearchSolution
+            // 
+            this.txtSearchSolution.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtSearchSolution.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.txtSearchSolution.Location = new System.Drawing.Point(0, 0);
+            this.txtSearchSolution.Name = "txtSearchSolution";
+            this.txtSearchSolution.Size = new System.Drawing.Size(318, 23);
+            this.txtSearchSolution.TabIndex = 12;
+            this.txtSearchSolution.Text = "Search here...";
+            this.txtSearchSolution.TextChanged += new System.EventHandler(this.txtSearchSolution_TextChanged);
+            this.txtSearchSolution.Enter += new System.EventHandler(this.txtSearchSolution_Enter);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 39);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.lboxSolutions);
+            this.splitContainer1.Panel1.Controls.Add(this.txtSearchSolution);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridLayers);
+            this.splitContainer1.Size = new System.Drawing.Size(1187, 580);
+            this.splitContainer1.SplitterDistance = 318;
+            this.splitContainer1.TabIndex = 13;
+            // 
             // SolutionLayerRemovalControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridLayers);
-            this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.lboxSolutions);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStripMenu);
             this.Name = "SolutionLayerRemovalControl";
             this.Size = new System.Drawing.Size(1187, 619);
@@ -247,6 +274,11 @@
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLayers)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,7 +289,6 @@
         private System.Windows.Forms.ToolStripButton tsbCancelOperation;
         private System.Windows.Forms.ToolStripButton tsbLoadUnmanagedComponents;
         private System.Windows.Forms.ToolStripSeparator tssSeparator1;
-        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbtnRemoveActiveCustomizations;
         private System.Windows.Forms.ListBox lboxSolutions;
@@ -270,5 +301,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPublisherName;
         private System.Windows.Forms.ToolStripButton tsbLoadSolutions;
+        private System.Windows.Forms.TextBox txtSearchSolution;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
