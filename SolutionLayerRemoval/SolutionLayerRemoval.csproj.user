@@ -2,7 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartArguments>/overridepath:.  /plugin:"Solution Layer Removal" /connection:"HA"</StartArguments>
-    <StartProgram>C:\Users\abodh\Source\Repos\SolutionLayerRemoval\SolutionLayerRemoval\bin\Debug\XrmToolBox.exe</StartProgram>
+    <StartArguments>/overridepath:.  /plugin:"Solution Layer Removal" /connection: "DemoTenant"</StartArguments>
+    <StartProgram>C:\Users\JohnHaroldERizaldo\source\repos\johnrizaldobh\SolutionLayerRemoval\SolutionLayerRemoval\bin\Debug\XrmToolBox.exe</StartProgram>
   </PropertyGroup>
 </Project>
